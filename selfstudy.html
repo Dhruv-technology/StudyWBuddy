@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Study Buddy</title>
+    <link rel="stylesheet" type="text/css" href="selfstudy.css">
+    <!-- Make sure to specify the correct image file path for the link below -->
+    <link rel="icon" href="light.png">
+    <script src="selfstudy.js"></script>
+</head>
+
+<body>
+    <img src="light.png" id="icon">
+    <h1 id="x">Study Buddy</h1>
+
+    <div id="sessionDetails">
+        <h2 class="b">Study Session</h2>
+        <label for="subjectInput">Subject:</label>
+        <input type="text" id="subjectInput">
+        <label for="durationInput">Duration (minutes):</label>
+        <input type="number" id="durationInput">
+        <button onclick="startCountdown()">Start Countdown</button>
+        <button onclick="startSession()" id="startBtn" disabled>Start</button>
+        <button onclick="endSession()" id="endBtn" disabled>End</button>
+    </div>
+
+    <div id="studyStats">
+        <h2 class="b">Study Statistics</h2>
+        <p>Total Study Time: <span id="totalStudyTime">0 minutes</span></p>
+        <p>Average Study Time: <span id="averageStudyTime">0 minutes</span></p>
+    </div>
+    <!-- Inside the body of your HTML file -->
+
+    <section id="chatSection">
+        <div id="chatContainer">
+            <!-- Chat messages will be displayed here -->
+        </div>
+        <div id="userInputContainer">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </section>
+
+
+    <!-- The script tag for selfstudy.js should not be repeated here -->
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #007BFF;
+}
+
+h2 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+#icon {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
+#sessionDetails,
+#studyStats {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#studyStats p {
+    margin: 10px 0;
+}
+
+#totalStudyTime,
+#averageStudyTime {
+    font-weight: bold;
+}
+
+.b {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+#x {
+    color: #007BFF;
+    text-align: center;
+}
+
+
+/* Add additional CSS styles here if needed */
+
+h1,
+h2 {
+    color: #333;
+}
+
+input,
+button {
+    margin: 5px;
+}
+
+#sessionDetails {
+    margin-bottom: 20px;
+}
+
+#studyStats {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+#icon {
+    align-self: center;
+    text-align: center;
+    width: 350px;
+    align-items: center;
+    align-content: center;
+}
+
+#x {
+    text-align: center;
+    color: red;
+}
+
+.b {
+    color: blue;
+}
+
+
+/* ... existing CSS code ... */
+
+#sessionDetails button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#sessionDetails button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#countdownDisplay {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    color: #007BFF;
+}
+
+.b {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+#x {
+    color: #007BFF;
+    text-align: center;
+}
+
+
+/* Add additional CSS styles here if needed */
+
+#chatSection {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+#chatContainer {
+    margin-bottom: 10px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.user-message {
+    color: blue;
+    margin-bottom: 5px;
+}
+
+.assistant-message {
+    color: green;
+    margin-bottom: 5px;
+}

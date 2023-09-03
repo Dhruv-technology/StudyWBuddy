@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="home.css">
+    <script src="java.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfH1FaLlIejER9s_zVBUuKFPPxoZ_MsME&libraries=places"></script>
+    npm install--save @google - cloud / filestore $ npm install googleapis
+</head>
+
+<body>
+
+    <img src="light.png" class="icon">
+
+    <br><br><br><br><br><br>
+    <h1 id="studyintroheading">We believe studying is fun. So lets have fun with our partners</h1>
+    <div class="container"><img src="_d7275c62-a0e7-4944-a1ac-d79c0bd25aa5.jpeg" alt="Image 1">
+        <img src="Screenshot_2023-07-11_180009-removebg-preview.png" alt=" Image 2 ">
+    </div><br>
+    <div width="100% ">
+        <a href="groupstudy.html "><button id="gstudy">GroupStudy</button></a><a href="selfstudy.html "><button id="sstudy ">SelfStudy</button></a>
+    </div>
+    <br><br><br><br><br><br>
+    <br> s
+    <section id="login">
+        <h2>Responsive Social Login Form</h2>
+        <p>Resize the browser window to see the responsive effect. When the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other.</p>
+
+        <div class="container">
+            <form action="/action_page.php">
+                <div class="row">
+                    <h2 style="text-align:center">Login with Social Media or Manually</h2>
+                    <div class="vl">
+                        <span class="vl-innertext">or</span>
+                    </div>
+
+                    <div class="col">
+                        <a href="#" class="fb btn">
+                            <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                        </a>
+                        <a href="#" class="twitter btn">
+                            <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                        </a>
+                        <a href="" class="google btn">
+                            <i class="fa fa-google fa-fw"></i> Login with Google+
+                        </a>
+                    </div>
+
+                    <div class=" col ">
+                        <div class="hide-md-lg ">
+                            <p>Or sign in manually:</p>
+                        </div>
+
+                        <input type="text " name="username " placeholder="Username " required>
+                        <input type="password " name="password " placeholder="Password " required>
+                        <input type="submit " value="Login ">
+                        <a href="# " onclick="signOut(); ">Sign out</a>
+                        <script>
+                            function signOut() {
+                                var auth2 = gapi.auth2.getAuthInstance();
+                                auth2.signOut().then(function() {
+                                    console.log('User signed out.');
+                                });
+                            }
+                        </script>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="bottom-container ">
+            <div class="row ">
+                <div class="col ">
+                    <a href="# " style="color:white " class="btn ">Sign up</a>
+                </div>
+                <div class="col ">
+                    <a href="# " style="color:white " class="btn ">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+        <script src="https://apis.google.com/js/platform.js " async defer></script>
+        <meta name="google-signin-client_id " content="608912144901-i8fe7mnhl5qe7bbc5d7nlp3t2s9hg1t0.apps.googleusercontent.com.apps.googleusercontent.com ">
+
+
+    </section>
+    <section id="contact ">
+        <div>
+            <img src="light.png " class="icon ">
+            <a href=" mailto:dhruv.tec@gmail.com "> <button id="mailid " width="100% ">dhruv.tec@gmail.com </button></a>
+        </div>
+
+    </section>
+    <br>
+    <br><br><br>
+</body>
+
+</html>

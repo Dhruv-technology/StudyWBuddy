@@ -1,0 +1,94 @@
+    body {
+        background-color: antiquewhite;
+    }
+    
+    #reql {
+        width: 100%;
+        background-color: black;
+        color: white;
+        height: 50px;
+    }
+    
+    #locationInput {
+        background-color: blanchedalmond;
+        color: black;
+        height: 50px;
+        width: 100%;
+        font-size: large;
+    }
+    
+    #submit1 {
+        background-color: white;
+        width: 73px;
+        text-align: center;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+        height: 73px;
+    }
+    
+    #icon {
+        align-self: center;
+        text-align: center;
+        width: 200px;
+        align-items: center;
+        align-content: center;
+    }
+    
+    #aligncenter {
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        text-align: center;
+    }
+    
+    .selforgroup {
+        width: 100%;
+        background-color: red;
+        color: white;
+        height: 56px;
+    }
+    
+    #beautify {
+        width: 100%;
+    }
+    
+    #x {
+        color: red;
+        font-weight: bold;
+        font-size: 100px;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+    /* Add this to your styles.css file */
+    
+    #chatSection {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #f9f9f9;
+    }
+    
+    #chatContainer {
+        margin-bottom: 10px;
+        max-height: 200px;
+        overflow-y: scroll;
+    }
+    
+    .user-message {
+        color: blue;
+        margin-bottom: 5px;
+    }
+    
+    .assistant-message {
+        color: green;
+        margin-bottom: 5px;
+    }
+    
+    ;

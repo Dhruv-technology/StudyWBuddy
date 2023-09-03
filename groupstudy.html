@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/node-fetch"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="groupstudy.css">
+    <!-- Include your Google Maps API script here with a valid API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfH1FaLlIejER9s_zVBUuKFPPxoZ_MsME&libraries=places"></script>
+    <script src="groupstudy.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+
+</head>
+
+<body onload="firstTime()">
+
+    <div id="aligncenter">
+        <img src="light.png" class="icon">
+    </div>
+    <br><br>
+    <section id="html">
+        <div>
+            <button onclick="requestLocation()" id="reql">Request Location</button>
+            <h2 id="demo"></h2>
+            <br><br><br><br><br>
+        </div>
+
+
+        <a href="selfstudy.html"><button class="selforgroup" width="100%">Switch to SelfStudy</button></a>
+        <section id="firsttimequestions">
+            <div id="questionForm" style="display: none;">
+                <h1>Education Questions</h1>
+                <label for=" stdOrCollege ">Choose:*</label>
+                <select id="stdOrCollege " onchange="toggleStandardInput() ">
+            <option value="std ">Standard</option>
+            <option value="college ">College</option>
+            </select>
+
+                <br><br>
+
+                <div id="stdSection ">
+                    <!--style="display: none; "  PLACE IT NEAR ID=STDSECTION-->
+                    <label for="name ">Name</label>
+                    <input type="text " id="Name "> <label for=" standard ">Standard:</label>
+                    <input type="number " id="standard ">
+                    <br><br>
+                </div>
+
+                <label for="aim ">Your Aim:*</label>
+                <input type="text " id="aim ">
+
+                <br><br>
+
+                <label for="degree ">Degree:</label>
+                <input type="text " id="degree ">
+
+                <br><br>
+
+                <label for="realWorld " required>Real World Experience(Hustler's university):</label>
+                <select id="realWorld " onchange="toggleRealWorldDetails() ">
+                <option value="yes ">yes</option>
+                <option value="no ">no</option>
+                <label for="name ">Name:</label>
+        <input type="text " id="name " required><br><br>
+        
+        <label for="dob " >Date of Birth:</label>
+        <input type="date " id="dob " required><br><br>
+
+            <br><br>
+
+            <button onclick="submitQuestion() ">Submit Question</button>
+        </div>
+    </section>
+</section>
+<h2>Matched Users:</h2>
+    <div id="matchedUsers "></div>
+    <!-- Inside the body of your HTML file -->
+
+    
+
+</section>
+
+
+</body>
+
+</html>

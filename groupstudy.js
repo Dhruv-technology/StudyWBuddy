@@ -22,13 +22,33 @@ function firstTime() {
     document.addEventListener("DOMContentLoaded"), () => {
         const visitedBefore = localStorage.getItem("visitedBefore");
 
-        if (!visitedBefore) {
-            document.getElementById("questionForm").style.display = "block";
-            localStorage.setItem("visitedBefore", "true");
+        // Converted JavaScript code:
 
+//const visitedBefore = false;
 
-            var x = document.getElementById("demo");
+if (!visitedBefore) {
+  const blockhtml = document.getElementById("html");
+  blockhtml.style.display = "block";
+  localStorage.setItem("visitedBefore", "true");
+  var x = document.getElementById("demo");
+            function requestLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const latitude = position.coords.latitude;
+                            const longitude = position.coords.longitude;
+                            console.log("Latitude: " + latitude);
+                            console.log("Longitude: " + longitude);
 
+                            // Save location data to the database
+                            saveLocation(latitude, longitude);
+                        },
+                        handleError
+                    );
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
             function handleError(error) {
                 console.error("Error:", error.message);
                 switch (error.code) {
@@ -68,26 +88,7 @@ function firstTime() {
                     });
             }
 
-            function location() {
-
-                function requestLocation() {
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                                const latitude = position.coords.latitude;
-                                const longitude = position.coords.longitude;
-                                console.log("Latitude: " + latitude);
-                                console.log("Longitude: " + longitude);
-
-                                // Save location data to the database
-                                saveLocation(latitude, longitude);
-                            },
-                            handleError
-                        );
-                    } else {
-                        x.innerHTML = "Geolocation is not supported by this browser.";
-                    }
-                }
+                
 
                 function getCurrentLocation() {
                     navigator.geolocation.getCurrentPosition(
@@ -198,6 +199,14 @@ function toggleRealWorldDetails() {
 
     checkFormValidity();
 }
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://study-389113-default-rtdb.asia-southeast1.firebasedatabase.app"
+});
 
 function checkFormValidity() {
     const realWorld = document.getElementById("realWorld").value;
@@ -221,13 +230,82 @@ function checkFormValidity() {
 
 function submitQuestion() {
     const stdOrCollege = document.getElementById("stdOrCollege").value;
+    const collectionName = "Studdybuddy";
+
+    // Data to be saved
+    const dataToSave = {
+        stdOrCollege: document.getElementById("stdOrCollege").value;
+        // Add more fields as needed db.collection(StuddyBuddy)
+        .add(dataToSave)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+
+    };
     const aim = document.getElementById("aim").value;
+    const collectionName = "Studdybuddy";
+
+    // Data to be saved
+    const dataToSave = {
+        aim: document.getElementById("aim").value;
+        // Add more fields as needed
+    };
+    db.collection(StuddyBuddy)
+        .add(dataToSave)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+
     const degree = document.getElementById("degree").value;
     const realWorld = document.getElementById("realWorld").value;
+    if (realWorld == true) {
+        document.getElementById(stdOrCollege).require == false;
+        // Replace 'your_collection' with the name of your Firestore collection
+        const collectionName = "Studdybuddy";
 
+        // Data to be saved
+        const dataToSave = {
+            realWorld: "yes",
+            // Add more fields as needed
+        };
+
+        // Add a new document with an automatically generated ID
+        db.collection(StuddyBuddy)
+            .add(dataToSave)
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+
+
+    }
     let standard = "";
     if (stdOrCollege === "std") {
         standard = document.getElementById("standard").value;
+        const collectionName = "Studdybuddy";
+
+        // Data to be saved
+        const dataToSave = {
+            aim: document.getElementById("standard").value;
+            // Add more fields as needed
+        };
+        db.collection(StuddyBuddy)
+            .add(dataToSave)
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+
     }
 
     // Here, you can save the data to a database or perform further processing
@@ -237,37 +315,93 @@ function submitQuestion() {
     console.log("Aim: ", aim);
     console.log("Degree: ", degree);
     console.log("Real World Experience: ", realWorld);
+    const collectionName = "Studdybuddy";
 
-    alert("Question submitted!");
-    call(matchUsers())
-    matchUsers()
-    else {
-        document.getElementById("html").style.display = "none";
-    }
-}
-const registrationForm = document.getElementById("registrationForm");
-const matchedUsersDiv = document.getElementById("matchedUsers");
+    // Data to be saved
+    const dataToSave = {
+        // Here, you can save the data to a database or perform further processing
+        // For simplicity, let's just log the values for now
+        console.log("Std/College: ", stdOrCollege);
+        console.log("Standard: ", standard);
+        console.log("Aim: ", aim);
+        console.log("Degree: ", degree);
+        console.log("Real World Experience: ", realWorld);
+        const collectionName = "Studdybuddy";
+        // Add more fields as needed
+    };
+    const registrationForm = document.getElementById("registrationForm");
+    const matchedUsersDiv = document.getElementById("matchedUsers");
 
 
-// Basic matching algorithm (simplified example)
+    // Basic matching algorithm (simplified example)
 
-function matchUsers(currentUser, allUsers) {
-    const users = [
-        { name: "User 1", dob: "1990-01-01", aim: "Study", institute: "School" },
-        { name: "User 2", dob: "1995-05-10", aim: "Learn", institute: "College" },
-        { name: "User 3", dob: "1992-03-20", aim: "Explore", institute: "University" },
-        { name: "User 4", dob: "1988-11-15", aim: "Achieve", institute: "School" },
-    ];
 
-    function matchUsers() {
+    function matchUsers(currentUser, allUsers) {
+        document.addEventListener("DOMContentLoaded", () => {
+            // Your existing code here
+
+            // The provided code to calculate matched users
+            const commonarr = [];
+            const dfarr = Object.values(df);
+
+            for (let i = 0; i < dfarr.length - 1; i++) {
+                for (let j = i + 1; j < dfarr.length; j++) {
+                    if (dfarr[i][6] * dfarr[j][6] >= 0) {
+                        if (dfarr[i][5] + dfarr[j][5] > 0) {
+                            const row = [];
+                            row.push(dfarr[i][0]);
+                            row.push(dfarr[j][0]);
+                            row.push((dfarr[i][6] * dfarr[j][6]) +
+                                (dfarr[i][5] + dfarr[j][5]) +
+                                (parseFloat((1 - (Math.abs(dfarr[i][7] - dfarr[j][7]) / 10)).toFixed(2))));
+                            commonarr.push(row);
+                        }
+                    }
+                }
+            }
+
+            // Sort matched users by final score
+            const ndf = commonarr.map(row => ({
+                name1: row[0],
+                name2: row[1],
+                final_score: row[2],
+            }));
+            ndf.sort((a, b) => b.final_score - a.final_score);
+
+            // Display matched users
+            const matchedUsersDiv = document.getElementById("matchedUsers");
+            const matchingUsersList = document.createElement("ul");
+
+            ndf.forEach(match => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${match.name1} and ${match.name2} - Score: ${match.final_score}`;
+                matchingUsersList.appendChild(listItem);
+            });
+
+            matchedUsersDiv.appendChild(matchingUsersList);
+        });
+
+        const users = [
+            { dob: "1990-01-01", aim: "Study", stdOrCollege: "School" },
+            { dob: "1995-05-10", aim: "Learn", stdOrCollege: "College" },
+            { dob: "1992-03-20", aim: "Explore", stdOrCollege: "College" },
+            { dob: "1988-11-15", aim: "Achieve", stdOrCollege: "School" },
+            { dob: "2000-12 -15", aim: "Astronaut", stdOrCollege: "School" },
+            { dob: "2002-1-21", aim: "Money", stdOrCollege: "College" },
+        ];
+
         const yourName = document.getElementById("name").value;
         const yourDob = document.getElementById("dob").value;
         const yourAim = document.getElementById("aim").value;
-        const yourInstitute = document.getElementById("realworld").value;
+        const stdOrCollege = document.getElementById("stdOrCollege").value;
 
         const matchingUsersList = document.getElementById("matchingUsers");
-        matchingUsersList.innerHTML = ""; // Clear previous matches
 
+        const dataToSave = {
+            matchingUsersList: matchingUsersList;
+            const collectionName = "Studdybuddy";
+            // Add more fields as needed
+        };
         users.forEach(user => {
             if (
                 user.name !== yourName &&
@@ -280,15 +414,10 @@ function matchUsers(currentUser, allUsers) {
                 matchingUsersList.appendChild(listItem);
             }
         });
+        matchingUsersList.innerHTML = ""; // Clear previous matches
     }
 
-    function displayAssistantMessage(message) {
-        const chatContainer = document.getElementById('chatContainer');
-        const assistantMessage = document.createElement('div');
-        assistantMessage.className = 'assistant-message';
-        assistantMessage.textContent = `Assistant: ${message}`;
-        chatContainer.appendChild(assistantMessage);
-    }
+
 
     function sendMessage() {
         const userInput = document.getElementById('userInput').value;
@@ -297,10 +426,98 @@ function matchUsers(currentUser, allUsers) {
         document.getElementById('userInput').value = '';
     }
 
-    function displayUserMessage(message) {
-        const chatContainer = document.getElementById('chatContainer');
-        const userMessage = document.createElement('div');
-        userMessage.className = 'user-message';
-        userMessage.textContent = `You: ${message}`;
-        chatContainer.appendChild(userMessage);
-    }
+    firebase.initializeApp(firebaseConfig);
+
+    // Reference to the Firebase Realtime Database
+    const database = firebase.database();
+
+    const messagesRef = database.ref("messages");
+    const messageInput = document.getElementById("message");
+    const sendButton = document.getElementById("send");
+    const messagesDiv = document.getElementById("messages");
+
+    // Listen for new messages and display them in real-time
+    messagesRef.on("child_added", (snapshot) => {
+        const message = snapshot.val();
+        const messageElement = document.createElement("div");
+        messageElement.innerText = `${message.name}: ${message.text}`;
+        messagesDiv.appendChild(messageElement);
+    });
+
+    // Send a new message
+    sendButton.addEventListener("click", () => {
+        const messageText = messageInput.value;
+        if (messageText.trim() !== "") {
+            const newMessageRef = messagesRef.push();
+            newMessageRef.set({
+                name: "User", // You can customize this to display the user's name
+                text: messageText
+            });
+            messageInput.value = "";
+        }
+    });
+    const currentUser = {
+        aim: ["engineering", "math"],
+        location: locationRef
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Initialize Firebase Messaging
+    const messaging = firebase.messaging();
+    matchUsers(currentUser);
+    // Get the user's registration token
+    messaging
+        .requestPermission()
+        .then(() => {
+            console.log("Notification permission granted.");
+            // You can now send notifications
+        })
+        .catch((error) => {
+            console.error("Notification permission denied.", error);
+        });
+
+    messaging
+        .getToken()
+        .then((token) => {
+            console.log("Registration token: " + token);
+            // Send this token to your server for later use
+        })
+        .catch((error) => {
+            console.error("Error getting registration token.", error);
+        });
+    const admin = require("firebase-admin");
+    const serviceAccount = require("path/to/serviceAccountKey.json");
+
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        databaseURL: "https://your-project-id.firebaseio.com",
+    });
+
+    // Define the notification message
+    const message = {
+        notification: {
+            title: "New Message",
+            body: "You have a new message!",
+        },
+        // You can also include data payload if needed
+        // data: {
+        //   key1: "value1",
+        //   key2: "value2",
+        // },
+    };
+
+    // Define the target registration token(s)
+    const registrationTokens = ["USER_REGISTRATION_TOKEN_1", "USER_REGISTRATION_TOKEN_2"];
+
+    // Send the notification
+    admin
+        .messaging()
+        .sendToDevice(registrationTokens, message)
+        .then((response) => {
+            console.log("Notification sent successfully:", response);
+        })
+        .catch((error) => {
+            console.error("Error sending notification:", error);
+        });
+    console.error("Error sending notification:", error);
+}

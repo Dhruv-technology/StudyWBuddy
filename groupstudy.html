@@ -11,6 +11,8 @@
     <script src="groupstudy.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging-compat.js"></script>
 
 </head>
 
@@ -30,7 +32,7 @@
 
         <a href="selfstudy.html"><button class="selforgroup" width="100%">Switch to SelfStudy</button></a>
         <section id="firsttimequestions">
-            <div id="questionForm" style="display: none;">
+            <div id="questionForm">
                 <h1>Education Questions</h1>
                 <label for=" stdOrCollege ">Choose:*</label>
                 <select id="stdOrCollege " onchange="toggleStandardInput() ">
@@ -71,17 +73,15 @@
             <br><br>
 
             <button onclick="submitQuestion() ">Submit Question</button>
+            
         </div>
     </section>
 </section>
 <h2>Matched Users:</h2>
     <div id="matchedUsers "></div>
     <!-- Inside the body of your HTML file -->
-
-    
-
 </section>
-
+ 
 
 </body>
 

@@ -226,3 +226,6 @@ input[type=submit]:hover {
         text-align: center;
     }
 }
+#google-login{
+border: none;
+}

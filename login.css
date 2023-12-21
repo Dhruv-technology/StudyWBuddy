@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    display: flex;    
+    height: 100vh;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.g-signin2{
+    width: 5000px;
+    text-align: left;
+}

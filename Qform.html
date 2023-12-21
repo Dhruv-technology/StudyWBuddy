@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Form</title>
+<script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.49.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfH1FaLlIejER9s_zVBUuKFPPxoZ_MsME&libraries=places"></script>
+    
+<script>
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+apiKey: "AIzaSyD05wMFdIOuPaTjr1cF5NHqnTLmI19OS8M",
+authDomain: "studywbuddy-6cbca.firebaseapp.com",
+projectId: "studywbuddy-6cbca",
+storageBucket: "studywbuddy-6cbca.appspot.com",
+messagingSenderId: "818403050320",
+appId: "1:818403050320:web:ac3761153eeba6145f6255",
+measurementId: "G-DFJM4VXL3X"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+   </script>
+   <script src="qf.js"></script>
+   <link rel="stylesheet" href="Qform.css">
+</head>
+<body>
+<section>
+    <div>
+        <button onclick="requestLocation()" id="reql">Request Location</button>
+        <h2 id="demo"></h2>
+        <br><br><br><br><br>
+    </div></section>
+    <a href="selfstudy.html"><button class="selforgroup" width="100%">Switch to SelfStudy</button></a>
+    <section id="firsttimequestions">
+        <h1>Education Questions</h1>
+            <label for="stdOrCollege">Choose:*</label>
+            <select id="stdOrCollege" onchange="toggleStandardInput()">
+        <option value="std">Standard</option>
+        <option value="college">College</option>
+        </select>
+
+            <br><br>
+                <!--style="display: none;"  PLACE IT NEAR ID=STDSECTION-->
+                <label for="name">Name</label>
+                <input type="text" id="Name"> <label for=" standard ">Standard:</label>
+                <input type="number " id="standard ">
+                <br><br>
+            </div>
+<label for="realWorld " required>Real World Experience(Hustler's university):</label>
+            <select id="realWorld " onchange="toggleRealWorldDetails() ">
+            <option value="yes">yes</option>
+            <option value="no ">no</option>
+            <label for="name ">Name:</label>
+    <input type="text " id="name " required><br><br>
+    
+    <label for="dob " >Date of Birth:</label>
+    <input type="date " id="dob " required><br><br>
+
+        <br><br>
+
+        <button onclick="submitQuestion() ">Submit Question</button>
+    </div>
+</section>
+
+<h2>Matched Users:</h2>
+<div id="matchedUsers "></div>
+<!-- Inside the body of your HTML file --></section></body></html>

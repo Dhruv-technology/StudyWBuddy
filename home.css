@@ -1,7 +1,45 @@
-body {
-    background-color: #faebd7;
-}
-
+ body {
+                font-family: Arial, sans-serif;
+                background-color: #3498db; /* Set your background color here */
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+    
+            .welcome-container {
+                text-align: center;
+                color: #fff; /* Set your text color here */
+            }
+    
+            .app-logo {
+                width: 200px; /* Set your logo's width */
+                height: 200px; /* Set your logo's height */
+                border-radius: 50%; /* Makes it a circle */
+                background-color: #fff; /* Set your logo's background color */
+                margin: 0 auto 20px;
+            }
+    
+            h1 {
+                font-size: 32px;
+                margin: 10px 0;
+            }
+    
+            p {
+                font-size: 18px;
+            }
+    
+            .get-started-button {
+                background-color: #fff; /* Set your button's background color */
+                color: #3498db; /* Set your button's text color */
+                border: none;
+                padding: 10px 20px;
+                font-size: 18px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
 #studyintroheading {
     color: black;
     text-align: center;
@@ -34,9 +72,8 @@ body {
     font-size: large;
 }
 
-#sstudy {
+#sstudy{
     align-content: center;
-    align-self: center;
     align-items: center;
     width: 50%;
     background-color: black;
@@ -70,11 +107,6 @@ body {
     width: 45%;
 }
 
-.container {
-    /* Set the display property to flex */
-    display: flex;
-}
-
 .container img {
     /* Set the width of the images to 50% */
     width: 50%;
@@ -84,14 +116,12 @@ body {
     box-sizing: border-box;
 }
 
-
-/* style the container */
-
 .container {
     position: relative;
-    border-radius: 5px;
+    border: none;
     background-color: #f2f2f2;
     padding: 20px 0 30px 0;
+    display: flex;
 }
 
 
@@ -119,21 +149,6 @@ input:hover,
 
 
 /* add appropriate colors to fb, twitter and google buttons */
-
-.fb {
-    background-color: #3B5998;
-    color: white;
-}
-
-.twitter {
-    background-color: #55ACEE;
-    color: white;
-}
-
-.google {
-    background-color: #dd4b39;
-    color: white;
-}
 
 
 /* style the submit button */
@@ -208,6 +223,20 @@ input[type=submit]:hover {
     border-radius: 0px 0px 4px 4px;
 }
 
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
 
 /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
 
@@ -228,4 +257,6 @@ input[type=submit]:hover {
 }
 #google-login{
 border: none;
+background-color: #dd4b39;
+color: white;
 }

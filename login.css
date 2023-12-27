@@ -7,11 +7,6 @@ body {
     height: 100vh;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
 .g-signin2{
-    width: 5000px;
     text-align: left;
 }

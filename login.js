@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   initializeGoogleAuth();
-  attachSignInEvent();
 });
 
 function initializeGoogleAuth() {
@@ -17,8 +16,8 @@ var state = Array.from({ length: 128 / 8 }, () => Math.floor(Math.random() * 256
 sessionStorage.setItem('state', state);
 
 // Set the client ID, token state, and application name in the HTML while serving it.
-var CLIENT_ID = '608912144901-tuvm1ckdmgf1u1ov4ojdemsdhs3uutbc.apps.googleusercontent.com';
-var APPLICATION_NAME = 'StudyWBuddy'; // Replace with your actual application name
+var CLIENT_ID = '818403050320-cdo6og210e164qf7p2j42ibmddvipo5t.apps.googleusercontent.com';
+var APPLICATION_NAME = 'StudyWBuddies'; // Replace with your actual application name
 
 // Assuming you have a function to render HTML, replace the following line accordingly.
 renderHtml({
@@ -49,13 +48,41 @@ function attachSignInEvent() {
   const signInButton = document.querySelector('.g-signin2');
   if (signInButton===onclick) {
     signInButton.addEventListener('click', function () {
-      gapi.auth2.getAuthInstance().signIn().then(onSignIn);
-      onSignIn()
+      gapi.auth2.getAuthInstance().signIn().then(oauth2SignIn());
     });
   }
 
 }
+function oauth2SignIn(googleUser) {
+  // Google's OAuth 2.0 endpoint for requesting an access token
+  var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
+  // Create element to open OAuth 2.0 endpoint in new window.
+  var form = document.createElement('form');
+  form.setAttribute('method', 'GET'); // Send as a GET request.
+  form.setAttribute('action', oauth2Endpoint);
+
+  // Parameters to pass to OAuth 2.0 endpoint.
+  var params = {'client_id':'818403050320-cdo6og210e164qf7p2j42ibmddvipo5t.apps.googleusercontent.com',
+                'redirect_uri':'http://localhost:80/Qform.html',
+                'scope': 'Gmail API',
+                'include_granted_scopes': 'true',
+                'response_type': 'token'};
+
+  // Add form parameters as hidden input values.
+  for (var p in params) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', p);
+    input.setAttribute('value', params[p]);
+    form.appendChild(input);
+  }
+
+  // Add form to page and submit it to open the OAuth 2.0 endpoint.
+  document.body.appendChild(form);
+  form.submit();
+  onSignIn();
+}
 function onSignIn(googleUser) {
   alert("Logged in");
   // Access user details
@@ -84,42 +111,6 @@ function onSignIn(googleUser) {
   alert("Logged in");
 }
 
-function oauth2SignIn() {
-  // Google's OAuth 2.0 endpoint for requesting an access token
-  var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
-
-  // Parameters to pass to OAuth 2.0 endpoint.
-  var params = {
-    'client_id': '608912144901-tuvm1ckdmgf1u1ov4ojdemsdhs3uutbc.apps.googleusercontent.com',
-    'redirect_uri': 'http://localhost:80/Qform.html',
-    'scope': 'Gmail API',
-    'include_granted_scopes': 'true',
-    'response_type': 'token'
-  };
-
-  // Create form and add parameters
-  var form = createForm(oauth2Endpoint, params);
-
-  // Add form to page and submit it to open the OAuth 2.0 endpoint.
-  document.body.appendChild(form);
-  form.submit();
-}
-function createForm(action, params) {
-  var form = document.createElement('form');
-  form.setAttribute('method', 'GET');
-  form.setAttribute('action', action);
-
-  // Add form parameters as hidden input values.
-  for (var p in params) {
-    var input = document.createElement('input');
-    input.setAttribute('type', 'hidden');
-    input.setAttribute('name', p);
-    input.setAttribute('value', params[p]);
-    form.appendChild(input);
-  }
-
-  return form;
-}
 
 function onFailure(error) {
   console.log(error);
